@@ -91,6 +91,15 @@ module('Unit | Utility | list-walker', function() {
 
     checkEnd(assert, walker);
   });
+
+  test('set current extraneous', function(assert) {
+    const walker = listWalker(['a', 'b', 'c']);
+
+    assert.equal(walker.next(), 'b', 'next from start');
+    assert.equal(walker.setCurrent(item => item === 'd'), 'b', 'set current to extraneous');
+
+    checkMiddle(assert, walker);
+  });
 });
 
 function checkStart(assert, walker) {
