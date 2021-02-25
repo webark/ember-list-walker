@@ -1,5 +1,9 @@
 ember-list-walker
 ==============================================================================
+![Download count all time](https://img.shields.io/npm/dt/ember-list-walker.svg)
+[![Build Status](https://travis-ci.com/webark/ember-list-walker.svg?branch=main)](https://travis-ci.com/webark/ember-list-walker)
+[![npm version](https://badge.fury.io/js/ember-list-walker.svg)](https://badge.fury.io/js/ember-list-walker)
+[![Ember Observer Score](https://emberobserver.com/badges/ember-list-walker.svg)](https://emberobserver.com/addons/ember-list-walker)
 
 Walk a ArrayProxy list with index tracking, and next and previous steps.
 
