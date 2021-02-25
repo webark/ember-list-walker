@@ -1,6 +1,6 @@
 {
   "name": "ember-list-walker",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Walk a ArrayProxy list with index tracking, and next and previous steps.",
   "keywords": [
     "ember-addon"
