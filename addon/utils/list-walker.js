@@ -1,6 +1,7 @@
-import { computed } from "@ember/object";
+import { computed } from '@ember/object';
 import ArrayProxy from '@ember/array/proxy';
 
+// eslint-disable-next-line ember/no-classic-classes
 const ListWalker = ArrayProxy.extend({
   index: computed({
     get() {
@@ -8,7 +9,7 @@ const ListWalker = ArrayProxy.extend({
     },
     set(key, value, original) {
       if (0 <= value && value < this.length) {
-        return value
+        return value;
       } else {
         return original;
       }
@@ -30,13 +31,13 @@ const ListWalker = ArrayProxy.extend({
   nextIndex: computed('index', 'isLast', {
     get() {
       return this.isLast ? undefined : this.index + 1;
-    }
+    },
   }),
 
   previousIndex: computed('index', 'isFirst', {
     get() {
       return this.isFirst ? undefined : this.index - 1;
-    }
+    },
   }),
 
   next() {
@@ -54,7 +55,7 @@ const ListWalker = ArrayProxy.extend({
   current: computed('index', {
     get() {
       return this.objectAt(this.index);
-    }
+    },
   }),
 
   setCurrent(callback) {
@@ -78,4 +79,4 @@ export function walker(property) {
   });
 }
 
-export default ListWalker
+export default ListWalker;

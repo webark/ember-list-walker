@@ -1,9 +1,8 @@
 import { listWalker } from 'ember-list-walker/utils/list-walker';
 import { module, test } from 'qunit';
 
-module('Unit | Utility | list-walker', function() {
-
-  test('it starts at zero index', function(assert) {
+module('Unit | Utility | list-walker', function () {
+  test('it starts at zero index', function (assert) {
     const walker = listWalker(['a', 'b', 'c']);
 
     assert.equal(walker.current, 'a', 'inital current check');
@@ -11,7 +10,7 @@ module('Unit | Utility | list-walker', function() {
     checkStart(assert, walker);
   });
 
-  test('going back from start has no effect', function(assert) {
+  test('going back from start has no effect', function (assert) {
     const walker = listWalker(['a', 'b', 'c']);
 
     assert.equal(walker.current, 'a', 'inital current check');
@@ -20,7 +19,7 @@ module('Unit | Utility | list-walker', function() {
     checkStart(assert, walker);
   });
 
-  test('going forward changes index', function(assert) {
+  test('going forward changes index', function (assert) {
     const walker = listWalker(['a', 'b', 'c']);
 
     assert.equal(walker.next(), 'b', 'next from start');
@@ -28,7 +27,7 @@ module('Unit | Utility | list-walker', function() {
     checkMiddle(assert, walker);
   });
 
-  test('going back from forward changes index back', function(assert) {
+  test('going back from forward changes index back', function (assert) {
     const walker = listWalker(['a', 'b', 'c']);
 
     assert.equal(walker.next(), 'b', 'next from start');
@@ -37,7 +36,7 @@ module('Unit | Utility | list-walker', function() {
     checkStart(assert, walker);
   });
 
-  test('going forward to end changes index', function(assert) {
+  test('going forward to end changes index', function (assert) {
     const walker = listWalker(['a', 'b', 'c']);
 
     assert.equal(walker.current, 'a'), 'inital current check';
@@ -47,8 +46,7 @@ module('Unit | Utility | list-walker', function() {
     checkEnd(assert, walker);
   });
 
-
-  test('going back from end changes index back', function(assert) {
+  test('going back from end changes index back', function (assert) {
     const walker = listWalker(['a', 'b', 'c']);
 
     assert.equal(walker.next(), 'b', 'next from start');
@@ -58,7 +56,7 @@ module('Unit | Utility | list-walker', function() {
     checkMiddle(assert, walker);
   });
 
-  test('going forward from end has no effect', function(assert) {
+  test('going forward from end has no effect', function (assert) {
     const walker = listWalker(['a', 'b', 'c']);
 
     assert.equal(walker.next(), 'b', 'next from start');
@@ -68,35 +66,51 @@ module('Unit | Utility | list-walker', function() {
     checkEnd(assert, walker);
   });
 
-  test('set current start', function(assert) {
+  test('set current start', function (assert) {
     const walker = listWalker(['a', 'b', 'c']);
 
-    assert.equal(walker.setCurrent(item => item === 'a'), 'a', 'set current to start');
+    assert.equal(
+      walker.setCurrent((item) => item === 'a'),
+      'a',
+      'set current to start'
+    );
 
     checkStart(assert, walker);
   });
 
-  test('set current middle', function(assert) {
+  test('set current middle', function (assert) {
     const walker = listWalker(['a', 'b', 'c']);
 
-    assert.equal(walker.setCurrent(item => item === 'b'), 'b', 'set current to middle');
+    assert.equal(
+      walker.setCurrent((item) => item === 'b'),
+      'b',
+      'set current to middle'
+    );
 
     checkMiddle(assert, walker);
   });
 
-  test('set current end', function(assert) {
+  test('set current end', function (assert) {
     const walker = listWalker(['a', 'b', 'c']);
 
-    assert.equal(walker.setCurrent(item => item === 'c'), 'c', 'set current to end');
+    assert.equal(
+      walker.setCurrent((item) => item === 'c'),
+      'c',
+      'set current to end'
+    );
 
     checkEnd(assert, walker);
   });
 
-  test('set current extraneous', function(assert) {
+  test('set current extraneous', function (assert) {
     const walker = listWalker(['a', 'b', 'c']);
 
     assert.equal(walker.next(), 'b', 'next from start');
-    assert.equal(walker.setCurrent(item => item === 'd'), 'b', 'set current to extraneous');
+    assert.equal(
+      walker.setCurrent((item) => item === 'd'),
+      'b',
+      'set current to extraneous'
+    );
 
     checkMiddle(assert, walker);
   });
